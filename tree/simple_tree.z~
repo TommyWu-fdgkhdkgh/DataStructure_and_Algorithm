@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-/* Â«Ã…Â§i tree_node Â¬OÂ¤GÂ¤Â¸Â·jÂ´MÂ¾Ã°ÂªÂºÂ¸`Ã‚I */
+/* «Å§i tree_node ¬O¤G¤¸·j´M¾ðªº¸`ÂI */
 typedef struct node{
     struct node *leftChild;
     char data;
@@ -12,8 +12,9 @@ typedef enum {
          false =1 ==0
 }bool;
 
+// ¿
 
-/* Â«Ã…Â§i tree_pointer Â¬OÂ«Ã¼Â¦VÂ¸`Ã‚IÂªÂºÂ«Ã¼Â¼Ã */
+/* «Å§i tree_pointer ¬O«ü¦V¸`ÂIªº«ü¼Ð */
 typedef tree_node *tree_pointer;
 
 void create_node(tree_pointer*,tree_pointer,bool,char);
@@ -29,10 +30,10 @@ int main(){
 
     root=(tree_node*)malloc(sizeof(tree_node));
     root->data='a';
-    //Â»sÂ³yÂ¤@Â­Ã“dataÂ¬Â°30ÂªÂºÂ¸`Ã‚I
+    //»s³y¤@­Ódata¬°30ªº¸`ÂI
     create_node(&root,root,true,'b');
     create_node(&root,root,false,'c');
-    //Â³ÃÂ³yÂ¤FÂ¤GÂ¼hÂªÂºÂ§Â¹Â¥Ã¾Â¤GÂ¤Â¸Â¾Ã°Â¡AÂ¥iÂ¥HÂ¶}Â©lÂ´ÃºÂ¸Ã•Â«eÂ¤Â¤Â«Ã¡Â§Ã‡Ã‚Ã Â´Â«
+    //³Ð³y¤F¤G¼hªº§¹¥þ¤G¤¸¾ð¡A¥i¥H¶}©l´ú¸Õ«e¤¤«á§ÇÂà´«
     test_pointer=root->leftChild;
 
 
@@ -57,7 +58,7 @@ int main(){
     return 0;
 }
 void create_node(tree_pointer *root,tree_pointer location,bool left_or_right,char data){
-    //Â¸Ã“Â¼WÂ¥[Â¸`Ã‚IÂªÂºÂ¤Ã¨Â¦Â¡Â¡AÂ¥uÂ¯Ã Â¦bÂ¬YÂ¸`Ã‚INULLÂªÂºÂªKÂªÂºÂ¦aÂ¤Ã¨Â·sÂ¼WÂ¡AÂµLÂªkinsert
+    //¸Ó¼W¥[¸`ÂIªº¤è¦¡¡A¥u¯à¦b¬Y¸`ÂINULLªºªKªº¦a¤è·s¼W¡AµLªkinsert
     //left_or_right   true->left    false->right
     tree_pointer temp;
     temp=(tree_node*)malloc(sizeof(tree_node));
@@ -75,14 +76,14 @@ void create_node(tree_pointer *root,tree_pointer location,bool left_or_right,cha
             location->rightChild=temp;
         }
     }
-    else{//Â­Ã¬Â¥Â»Â®ÃšÂ«Ã¼Â¼ÃÂ¨SÂ¦Â³Â³sÂ±ÂµÂ¨Ã¬Â¥Ã´Â¦Ã³Â¸`Ã‚I
+    else{//­ì¥»®Ú«ü¼Ð¨S¦³³s±µ¨ì¥ô¦ó¸`ÂI
         temp->leftChild=NULL;
         temp->rightChild=NULL;
         *root=temp;
     }
 }
 void delete_node(tree_pointer *root,tree_pointer location , bool left_or_right){
-    //Â¸Ã“Â§RÂ°Â£Â¥uÂ¯Ã Â§Ã¢Â¬YÂ­Ã“Â¸`Ã‚IÂ¹Ã½Â©Â³Â®Ã¸Â°Â£Â¡AÂ¤@Â¨Ã–Â®Ã¸Â°Â£Â¸Ã“Â¸`Ã‚IÂªÂºÂ¤lÂ¸`Ã‚I
+    //¸Ó§R°£¥u¯à§â¬Y­Ó¸`ÂI¹ý©³®ø°£¡A¤@¨Ö®ø°£¸Ó¸`ÂIªº¤l¸`ÂI
     if(root){
         if(left_or_right){
             free(location->leftChild);
@@ -120,5 +121,5 @@ void postorder(tree_pointer root){
 }
 
 
-//Â¯ÃŠÂ·sÂ¼WÂ¸`Ã‚IÂ¡AÂ§RÂ°Â£Â¸`Ã‚I
+//¯Ê·s¼W¸`ÂI¡A§R°£¸`ÂI
 /* implement simple tree and five kinds of traversal>> inorder , preorder , postorder, iterative inorder , level-order  */
