@@ -1,0 +1,10 @@
+一邊 DFS 一邊幫節點標顏色。
+碰到已經有顏色，且顏色相同的，就 return false;
+沒碰到這種情況，就 return true
+
+
+題目:
+
+https://practice.geeksforgeeks.org/problems/bipartite-graph/1
+https://leetcode.com/problems/is-graph-bipartite/
+

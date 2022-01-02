@@ -1,0 +1,41 @@
+Manacher's algorithm : 
+  Longest Palindromic Substring 
+
+(generalized) suffix tree : 
+  Substring Check (https://www.geeksforgeeks.org/suffix-tree-application-1-substring-check/)
+  Searching All Patterns ()
+  Longest Repeated Substring
+  Build Linear time suffix array
+  Longest Palinfromic Substring
+  Longest Common Substring
+
+KMP (Knuth Morris Pratt) :
+  Linear Time Pattern Searching
+
+
+Dijkstra's algorithm : 
+  Single Source Shortest Paths
+
+Bellman-Ford Algorith :
+
+Floyd-Warshall Algorithm : 
+
+Johnson's Algorithm : 
+
+
+Kruskal's algorithm : 
+  minimum spanning tree
+
+Prim's Algorithm : 
+  minimum spanning tree
+
+Borůvka's Algorithm :
+  minimum spanning tree
+
+Edmonds' Algorithm :
+  minimum spanning tree
+
+
+Red-Black Tree : 
+
+

@@ -1,0 +1,9 @@
+it's a directed graph problem
+
+transpose graph :  (the same graph with the direction of every edge reversed) has exactly the same strongly connected components as the original graph.
+
+
+me : 
+1. 對一張圖進行 DFS ， 每當 process_edge_late ， 把此點壓進 stack 。 結束 dfs 後，我們可以取得 DFS 的 exit_time 逆序。 (越先 process_edge_late 的點在 stack 的越下面。)
+
+2. 由 stack 的頂端開始對 transpose graph 進行 Dfs ， 這顆 dfs tree 就是一個 SCC (stronly connected component) ， 每當 DFS 完一遍就 stack.pop_back() ， 並把這次 DFS 有走到的部分通通都 pop_back

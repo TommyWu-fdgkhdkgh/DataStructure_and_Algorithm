@@ -1,0 +1,13 @@
+http://www.csie.ntnu.edu.tw/~u91029/LongestCommonSubsequence.html#6
+求出一群序列的 LCS ，是 NP-hard 問題，沒有快速的演算法。
+
+簡單的方式是窮舉法：窮舉 s1 的所有子序列，檢查 s2...sN 是否都有該子序列。時間複雜度是 O(s1! ⋅ (s2 + ... + sN)) 。
+
+求出兩個序列的 LCS ，是 P 問題。接下來將介紹各種演算法。
+
+---
+
+https://leetcode.com/problems/longest-common-subsequence/submissions/
+leetcode 題目
+
+---

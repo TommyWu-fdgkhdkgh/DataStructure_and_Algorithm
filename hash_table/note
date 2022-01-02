@@ -1,0 +1,101 @@
+作業要求（https://github.com/jwasham/coding-interview-university#hash-table）
+當然也可以照自己的想法來，寫程式很自由ㄉ
+
+
+Q: linear probing ?
+A: https://alrightchiu.github.io/SecondRound/hash-tableopen-addressing.html#probing
+
+
+-----------
+
+8. hashing with chaining
+https://www.youtube.com/watch?v=0M_kIqhwbFo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=8
+
+
+0:24 --
+
+Today : Hashing I
+-- Dictionaries & Python
+-- Motivation
+-- Prehashing
+-- Hashing
+-- Chaining
+-- Simple uniform hashing
+-- "Good" hash functions
+
+12:18 --
+
+Motivation : 
+  -- docdist
+  -- database
+  -- compilers & interpreters
+  -- network, router, server
+  -- substring search
+  -- string commonalities
+  -- cryptography
+
+15:21 --
+  -- Simple approach : 
+    -- Direct - access table
+    -- store items in array indexed by key
+
+    -- any badness ?
+      -- Hard to associate something with an integer, keys may not be non-negative integer 
+      -- gigantic memory hog 
+
+18:00 --
+
+two big problems : 
+  -- keys may not be non-negative integer
+  -- gigantic memory hog
+  
+Solutions to 1 :
+  -- "pre"hash
+    -- maps keys to non-negative integers
+    -- in theory, keys are finite & discrete
+    -- "We know that anything on the computer could ultimately be written down as a string of bits. So string of bits represents an integer -- so we're done"
+    -- "In `theory`, it is easy"
+  -- Python calls it "hash"
+   
+23:58 --
+
+ -- in Python, hash(x) is the prehash of x 
+ -- Solution to 2 : hashing
+   -- reduce universe "u" of all keys (integers) down to reasonable size "m" for table
+   -- idea : m 大約等於 n(number of keys in dictionary)
+
+30:17 --
+
+how to handle collision ?
+  -- chaining 
+    -- linked list of colliding elements in each slot of hashtable
+
+34:43 --
+  Simple Uniform Hashing (這個假設並不真實，但是可以很簡單地進行分析)
+
+
+35:35 -- 
+  So the hash function is what does the work of reducing your key space down to small set of slots
+
+42:38 --
+  Hash functions
+    -- division method
+    -- multiplication method
+    -- Universal Hashing
+
+
+-------------
+9. Table Doubling, Karp-Rabin
+https://www.youtube.com/watch?v=BRO7mVIFt08&index=9&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb
+
+
+
+
+
+
+
+
+
+
+
+
