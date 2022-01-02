@@ -1,0 +1,34 @@
+
+# 
+
+
+
+# 
+
+
+
+#  
+
+【用途】計算動態「前綴和」，比線段樹更節省記憶體，也更容易實作。
+【概念】給定一個陣列 A[ ] = {A1, A2, A3, A4, A5, A6, A7, A8, A9}
+計算區間和 sum({A3, A4, A5, A6}) = sum({ A1, A2, A3, A4, A5, A6}) – sum({A1, A2})
+只要對任意的 i，都能算出前綴和 sum({A1, …, Ai})，就可以求得任意區間和。
+【複雜度】
+時間複雜度：O(log(N))
+空間複雜度：O(N)
+【實作】update(x, d)：更新 BIT 的值 (第 x 項的值加上 d, delta)，下圖以A13 + d為例。
+關鍵計算：x += x & (-x)
+BIT數組中的B[13], B[14], B[16] 都包含A13，因此必須一併更新。
+
+# Reference
+
+https://yuihuang.com/binary-indexed-tree/?utm_source=rss&utm_medium=rss&utm_campaign=binary-indexed-tree
+【用途】計算動態「前綴和」，比線段樹更節省記憶體，也更容易實作。
+
+https://hackmd.io/@wiwiho/cp-note/%2F%40wiwiho%2FCPN-binary-indexed-tree
+
+https://www.csie.ntu.edu.tw/~sprout/algo2016/homework/week11.pdf
+
+https://yuihuang.com/binary-indexed-tree/?utm_source=rss&utm_medium=rss&utm_campaign=binary-indexed-tree
+
+https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/

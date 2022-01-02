@@ -1,0 +1,121 @@
+
+ row  ---  pixel
+  0          0
+  1          1
+             2
+  2          3
+             4
+             5
+  3          6
+             7
+
+input : hs[0], hs[1], hs[2] … hs[n - 1]
+
+hs[0] == row_0 的高度
+hs[1] == row_1 的高度
+hs[2] == row_2 的高度
+
+1. void Initialize(vector<int> hs)
+2. int Select(int y_px)  -> 給定 pixel ， 反查 row
+3. void Adjust(int row, int new_h)  -> 調整任意 row 的高度
+
+
+----------------------------------------------------------------
+航哥：
+ferwick tree
+binary index tree
+
+
+----------------------------------------------------------------
+
+typedef struct Node Node;
+struct Node {
+  int row;
+  int leftTotal;
+  int rootSize;
+  int rightTotal;
+  Node *left;
+  Node *right;
+}
+
+Node *root = NULL;
+
+void buildTree(Node **root, vector<int> &preSum, int left, int right) {
+     if(left > right) {
+        return;
+     }
+    
+     Node *newn = (Node *)malloc(sizeof(Node));
+     int mid = (left + right) / 2;
+     newn->row = mid;
+     if(mid == 0) {
+        newn->leftTotal = 0;
+        newn->rootSize = preSum[mid];
+     } else {
+        newn->leftTotal = preSum[mid - 1];
+        newn->rootSize = preSum[mid] - preSum[mid - 1];
+     }
+     newn->rightTotal = preSum.back() - preSum[mid];
+     newn->left = NULL; 
+     newn->right = NULL;
+
+     *root = newn;
+   
+     buildTree(&(newn->left), preSum, 0, mid - 1);
+     buildTree(&(newn->right), preSum, mid + 1, preSum.size() - 1);
+}
+
+void initialize(vector<int> hs) {
+     vector<int> preSum = vector<int>(hs.size(), 0);
+     int sum = 0;
+     for(int i = 0;i <hs.size();i++) {
+        sum += hs[i];
+        preSum[i] = sum;
+     }
+
+     int mid = (hs.size() - 1) / 2;
+     Node *newn = (Node *) malloc(sizeof(Node));
+     newn->row = mid;
+     if(mid == 0) {
+        newn->leftTotal = 0;
+        newn->rootSize = preSum[mid];
+     } else {
+        newn->leftTotal = preSum[mid - 1];
+        newn->rootSize = preSum[mid] - preSum[mid - 1];
+     }
+     newn->rightTotal = preSum.back() - preSum[mid];
+     newn->left = NULL;
+     newn->right = NULL;
+
+     buildTree(&(root->left), preSum, 0, mid - 1);
+     buildTree(&(root->right), preSum, mid + 1, preSum.size() - 1);
+}
+
+
+int Select(Node *root, int y_px) {
+   if(y_px < root->leftTotal) {
+      return Select(root->left, y_px);
+   } else if(y_px < root->leftTotal + root->rootSize) {
+      return root->row;
+   } else {
+      return Select(root->right, y_px - (root->leftTotal + root->rootSize));
+   }
+
+   return 0;
+}
+
+void Adjsut(Node *root, int row, int new_h) {
+    if(row < root->row) {
+       Adjust(root->left, row, new_h);
+       // 依照子樹的狀況調整長度
+       root->leftTotal = root->left->leftTotal + root->left->rootSize + root->left->rightTotal;
+    } else if(row == root->row) {
+       root->rootSize = new_h;
+    } else {
+       Adjust(root->right, row, new_h);
+       // 依照子樹的狀況調整長度
+       root->rightTotal = root->right->leftTotal + root->right->rootSize + root->right->rightTotal;
+    }
+}
+
+
