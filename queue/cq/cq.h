@@ -22,4 +22,6 @@ public:
     T popQueue();
 };
 
+template class cq<int>;
+
 #endif /* __CQ_H__ */

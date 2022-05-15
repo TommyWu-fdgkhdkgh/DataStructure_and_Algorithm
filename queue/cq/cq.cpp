@@ -4,11 +4,11 @@
 #define DEFAULT_SIZE 50
 
 template <typename T>
-cq<T>::cq() {
+cq<T>::cq(void) {
     numOfElements = 0;
     head = 0;
     tail = 0;
-    content = new std::vector<T>;
+    content = std::vector<T>(DEFAULT_SIZE);
 }
 
 template <typename T>
@@ -57,3 +57,5 @@ T cq<T>::popQueue() {
     return content[tmp];
 }
 
+
+// template class cq<int>;

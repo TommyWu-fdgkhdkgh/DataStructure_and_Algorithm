@@ -1,6 +1,6 @@
 #include <cassert>
 #include <vector>
-// #include "cq.h"
+#include "cq.h"
 
 typedef struct Node Node;
 struct Node {
@@ -9,9 +9,8 @@ struct Node {
 };
 
 int main() {
-    // cq<int> newCq;
+    cq<int> newCq;
     
-    std::vector<Node> n;
 
     return 0;
 }
