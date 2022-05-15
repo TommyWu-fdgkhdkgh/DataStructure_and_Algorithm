@@ -3,8 +3,9 @@
 #include "cq.h"
 
 TEST(simpleTest, returnSize) {
-    cq<int> newcq;
-    EXPECT_EQ(1, 1);
+    // cq<int> newcq(10);
+    cq<int> newcq = cq<int>(10);
+    EXPECT_EQ(newcq.getSize(), 10);
 }
 
 int main(int argc, char *argv[]) {

@@ -3,7 +3,6 @@
 
 #include <vector>
 #include <cassert>
-#define DEFAULT_SIZE 50
 
 template <typename T>
 class cq {
@@ -14,11 +13,11 @@ private:
    std::vector<T> content;
 
 public:  
-    cq() {
+    cq(unsigned int size) {
         numOfElements = 0;
         head = 0;
         tail = 0;
-        content = std::vector<T>(DEFAULT_SIZE);
+        content = std::vector<T>(size);
     }
 
     void setSize(unsigned int size) {
